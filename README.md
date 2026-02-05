@@ -1,2 +1,5 @@
-# blog
-Areeb's Blog - مدونة أريب
+# Arib's Blog — مدونة أريب
+
+Personal blog powered by Hugo, hosted on GitHub Pages.
+
+🌐 **https://blog.arib.sa**
