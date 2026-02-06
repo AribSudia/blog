@@ -39,7 +39,7 @@ claude --version
 
 ---
 
-## الخطوة 2: تسجيل الدخول عبر OAuth
+## الخطوة 2: تسجيل الدخول
 
 اكتب في التيرمنال:
 
@@ -77,27 +77,20 @@ claude login
 
 ---
 
-## الخطوة 4: استخراج التوكن
+## الخطوة 4: استخراج التوكن ⭐
 
-التوكنات تتحفظ في ملف مخفي. اكتب:
+هذي الخطوة المهمة! اكتب:
 
 ```bash
-cat ~/.claude/.credentials.json
+claude setup-token
 ```
 
-راح يطلع لك شي زي كذا:
+**راح يطلع لك التوكن مباشرة — انسخه!**
 
-```json
-{
-  "oauth": {
-    "accessToken": "ant-oa-xxxxxxxxxxxxxxxxxxxx",
-    "refreshToken": "ant-rt-xxxxxxxxxxxxxxxxxxxx",
-    "expiresAt": "2026-02-07T12:00:00.000Z"
-  }
-}
+شكل التوكن:
 ```
-
-**انسخ الـ `accessToken`** — هذا اللي تحتاجه!
+ant-oa-xxxxxxxxxxxxxxxxxxxx
+```
 
 ---
 
@@ -130,16 +123,7 @@ source ~/.zshrc
 ## ملاحظات مهمة
 
 ### ⏰ التوكن له صلاحية
-التوكن ينتهي بعد فترة (شوف `expiresAt`). لما ينتهي، سوِّ `claude login` من جديد.
-
-### 🔄 الـ Refresh Token
-بعض إعدادات OpenClaw تطلب `refreshToken` أيضاً:
-
-```yaml
-anthropic:
-  oauthAccessToken: "ant-oa-xxxxxxxxxxxxxxxxxxxx"
-  oauthRefreshToken: "ant-rt-xxxxxxxxxxxxxxxxxxxx"
-```
+التوكن ينتهي بعد فترة. لما ينتهي، سوِّ `claude login` ثم `claude setup-token` من جديد.
 
 ### 🔐 لا تشارك التوكن
 التوكن مثل كلمة السر — لا تشاركه مع أحد!
@@ -156,9 +140,9 @@ npm install -g @anthropic-ai/claude-code
 claude login
 
 # 3. استخرج التوكن
-cat ~/.claude/.credentials.json
+claude setup-token
 
-# 4. انسخ accessToken وحطه في OpenClaw
+# 4. انسخ التوكن وحطه في OpenClaw
 ```
 
 ---
