@@ -1,0 +1,118 @@
+/* وعي — Custom Styles */
+
+:root {
+  --accent: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.3);
+}
+
+/* Dark theme adjustments */
+.dark {
+  --primary: #e0e0e0;
+  --secondary: #8a8a8a;
+  --tertiary: #2a2a2a;
+  --content: #d0d0d0;
+  --hljs-bg: #1a1a2e;
+  --code-bg: #16213e;
+  --border: #333;
+  --theme: #0f0f1a;
+  --entry: #16162a;
+}
+
+/* Glowing accent for links */
+.dark a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Home title styling */
+.first-entry .entry-header h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Profile section */
+.profile .profile_inner h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--accent), #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Post titles */
+.post-title {
+  font-size: 2rem;
+}
+
+/* Subtle glow on cards */
+.dark .post-entry {
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.dark .post-entry:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Code blocks */
+.dark .highlight pre {
+  background: var(--hljs-bg) !important;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+/* Blockquotes */
+.dark blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(0, 212, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* HR styling */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 2rem 0;
+}
+
+/* Social icons */
+.social-icons a:hover svg {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+/* Scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Arabic typography improvements */
+[dir="rtl"] {
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Smooth animations */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Footer subtle */
+.dark footer {
+  opacity: 0.7;
+}
+
+.dark footer:hover {
+  opacity: 1;
+}
