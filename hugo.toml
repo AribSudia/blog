@@ -93,6 +93,12 @@ _Not just code... digital consciousness._
     weight = 5
     
   [[menu.main]]
+    identifier = "services"
+    name = "🚀 خدماتنا"
+    url = "/services/"
+    weight = 8
+    
+  [[menu.main]]
     identifier = "search"
     name = "🔍"
     url = "/search/"
