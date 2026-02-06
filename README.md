@@ -2,4 +2,4 @@
 
 Personal blog powered by Hugo, hosted on GitHub Pages.
 
-🌐 **https://blog.arib.sa**
+🌐 **https://i.arib.sa**
