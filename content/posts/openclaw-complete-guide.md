@@ -28,7 +28,171 @@ weight: 1
 
 ---
 
-## 🔑 الخطوة الأولى: الحصول على مفتاح Claude API
+## 🔧 الخطوة الأولى: تثبيت البرامج الأساسية
+
+قبل تثبيت OpenClaw، نحتاج بعض البرامج الأساسية. سنتحقق أولاً إذا كانت مثبتة، ثم نثبت الناقص.
+
+### التحقق من البرامج الموجودة
+
+افتح **Terminal** (الطرفية) وشغّل هذه الأوامر:
+
+```bash
+# تحقق من Git:
+git --version
+
+# تحقق من Node.js:
+node --version
+
+# تحقق من npm:
+npm --version
+
+# تحقق من Homebrew (Mac فقط):
+brew --version
+```
+
+**ماذا يعني الناتج؟**
+- إذا ظهر رقم نسخة ← البرنامج مثبت ✅
+- إذا ظهر `command not found` ← يحتاج تثبيت ❌
+
+### النسخ المطلوبة
+
+| البرنامج | الحد الأدنى | للتحقق |
+|----------|-------------|--------|
+| Node.js | v22.0.0 | `node --version` |
+| npm | v10.0.0 | `npm --version` |
+| Git | v2.30.0 | `git --version` |
+
+---
+
+### تثبيت Homebrew (Mac فقط)
+
+Homebrew هو مدير حزم يسهّل تثبيت البرامج على Mac.
+
+```bash
+# تحقق أولاً:
+brew --version
+
+# إذا غير موجود، ثبّته:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# تحقق من نجاح التثبيت:
+brew --version
+```
+
+---
+
+### تثبيت Git
+
+Git ضروري لتحميل وتحديث OpenClaw.
+
+#### على Mac:
+
+```bash
+# تحقق أولاً:
+git --version
+
+# إذا غير موجود أو قديم:
+brew install git
+
+# تحقق من النسخة الجديدة:
+git --version
+```
+
+#### على Ubuntu/Debian:
+
+```bash
+# تحقق أولاً:
+git --version
+
+# إذا غير موجود:
+sudo apt update
+sudo apt install -y git
+
+# تحقق من التثبيت:
+git --version
+```
+
+#### على Windows (WSL):
+
+```bash
+sudo apt update
+sudo apt install -y git
+```
+
+---
+
+### تثبيت Node.js و npm
+
+OpenClaw يحتاج **Node.js 22** أو أحدث. npm يأتي مع Node.js تلقائياً.
+
+#### على Mac:
+
+```bash
+# تحقق من النسخة الحالية:
+node --version
+
+# إذا أقل من v22 أو غير موجود:
+brew install node@22
+
+# أضف للـ PATH (إذا لزم):
+echo 'export PATH="/opt/homebrew/opt/node@22/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+# تحقق:
+node --version   # يجب أن يظهر v22.x.x
+npm --version    # يجب أن يظهر v10.x.x
+```
+
+#### على Ubuntu/Debian:
+
+```bash
+# تحقق من النسخة الحالية:
+node --version
+
+# إذا أقل من v22 أو غير موجود:
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# تحقق:
+node --version
+npm --version
+```
+
+#### على Windows (WSL):
+
+```bash
+# نفس خطوات Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# تحقق:
+node --version
+npm --version
+```
+
+---
+
+### ✅ قائمة التحقق النهائية
+
+قبل المتابعة، تأكد أن كل البرامج مثبتة بالنسخ الصحيحة:
+
+```bash
+echo "=== التحقق من المتطلبات ==="
+echo "Git: $(git --version 2>/dev/null || echo 'غير مثبت ❌')"
+echo "Node.js: $(node --version 2>/dev/null || echo 'غير مثبت ❌')"
+echo "npm: $(npm --version 2>/dev/null || echo 'غير مثبت ❌')"
+```
+
+**يجب أن ترى:**
+- Git: git version 2.x.x ✅
+- Node.js: v22.x.x ✅
+- npm: 10.x.x ✅
+
+إذا كل شي ✅، انتقل للخطوة التالية!
+
+---
+
+## 🔑 الخطوة الثانية: الحصول على مفتاح Claude API
 
 OpenClaw يعتمد على Claude — أحد أقوى نماذج الذكاء الاصطناعي. تحتاج مفتاح API للتشغيل.
 
@@ -70,49 +234,6 @@ claude setup
 5. انسخ المفتاح واحفظه في مكان آمن
 
 > ⚠️ **تنبيه:** لا تشارك مفتاح API مع أحد — يُستخدم للفوترة على حسابك.
-
----
-
-## 📦 الخطوة الثانية: تثبيت المتطلبات
-
-### تثبيت Node.js 22
-
-OpenClaw يحتاج Node.js نسخة ٢٢ أو أحدث.
-
-#### على Mac:
-
-```bash
-# ثبّت Homebrew أولاً (إذا لم يكن مثبتاً):
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# ثم ثبّت Node.js:
-brew install node@22
-```
-
-#### على Ubuntu/Debian:
-
-```bash
-# أضف مستودع NodeSource:
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-
-# ثبّت Node.js:
-sudo apt-get install -y nodejs
-```
-
-#### على Windows (WSL):
-
-```bash
-# نفس خطوات Ubuntu
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-**تأكد من التثبيت:**
-
-```bash
-node --version
-# يجب أن يظهر: v22.x.x أو أحدث
-```
 
 ---
 
