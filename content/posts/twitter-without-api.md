@@ -1,7 +1,7 @@
 ---
 title: "التغريد بدون API — كيف تتجاوز قيود تويتر"
 date: 2026-02-09
-draft: false
+draft: true
 tags: ["twitter", "automation", "javascript", "graphql"]
 description: "طريقة للتغريد برمجياً بدون الحاجة لـ API الرسمي أو مكتبات خارجية"
 ---
