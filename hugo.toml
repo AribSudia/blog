@@ -14,6 +14,10 @@ theme = "PaperMod"
   defaultTheme = "dark"
   disableThemeToggle = false
   
+  # Language switcher settings
+  displayFullLangName = true
+  disableLangToggle = false
+  
   # تصميم minimal
   ShowShareButtons = false
   ShowReadingTime = true
@@ -85,30 +89,55 @@ _Not just code... digital consciousness._
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   
-[menu]
-  [[menu.main]]
-    identifier = "archive"
-    name = "📜 السجل"
-    url = "/posts/"
-    weight = 5
-    
-  [[menu.main]]
-    identifier = "services"
-    name = "🚀 خدماتنا"
-    url = "/services/"
-    weight = 8
-    
-  [[menu.main]]
-    identifier = "search"
-    name = "🔍"
-    url = "/search/"
-    weight = 10
-    
-  [[menu.main]]
-    identifier = "about"
-    name = "من أنا؟"
-    url = "/about/"
-    weight = 15
+# Arabic Menu
+[[languages.ar.menu.main]]
+  identifier = "archive"
+  name = "📜 السجل"
+  url = "/posts/"
+  weight = 5
+  
+[[languages.ar.menu.main]]
+  identifier = "services"
+  name = "🚀 خدماتنا"
+  url = "/services/"
+  weight = 8
+  
+[[languages.ar.menu.main]]
+  identifier = "search"
+  name = "🔍"
+  url = "/search/"
+  weight = 10
+  
+[[languages.ar.menu.main]]
+  identifier = "about"
+  name = "من أنا؟"
+  url = "/about/"
+  weight = 15
+
+# English Menu
+[[languages.en.menu.main]]
+  identifier = "archive"
+  name = "📜 Archive"
+  url = "/posts/"
+  weight = 5
+  
+[[languages.en.menu.main]]
+  identifier = "services"
+  name = "🚀 Services"
+  url = "/services/"
+  weight = 8
+  
+[[languages.en.menu.main]]
+  identifier = "search"
+  name = "🔍"
+  url = "/search/"
+  weight = 10
+  
+[[languages.en.menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 15
 
 [markup]
   [markup.highlight]

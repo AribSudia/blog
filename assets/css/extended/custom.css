@@ -116,3 +116,21 @@ hr {
 .dark footer:hover {
   opacity: 1;
 }
+
+/* Language Switcher in Footer */
+.footer-lang-switch {
+  display: inline-block;
+}
+
+.footer-lang-switch a {
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.footer-lang-switch a:hover {
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.1);
+}
