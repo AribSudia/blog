@@ -99,6 +99,28 @@ size goal → choose mode → decompose → dispatch → integrate → reconcile
 
 ---
 
+## Stack Skills — تخصصات تُزرع في كل هدف
+
+`/arib-build` الافتراضي لا يمتد لأي skill آخر. لكن لما الهدف يحتاج **تخصصاً عميقاً**، Stack Skills جاهزة:
+
+| Skill | ما يُضيفه للبيلد |
+|-------|----------------|
+| **`/arib-nestjs`** | معمار صحيح للـ modules، DTOs، Guards — يُراجع كل ما لمسه المتخصصون |
+| **`/arib-postgres`** | migrations آمنة، queries مُحسَّنة، N+1 ممسوك قبل الدمج |
+
+```bash
+# بيلد عادي
+/arib-build add JWT refresh token flow
+
+# بيلد + مراجعة NestJS صريحة
+/arib-build add JWT refresh token flow
+/arib-nestjs review apps/api/src/modules/auth   # ← بعد البيلد
+```
+
+**الفلسفة:** يُضاف Stack Skill حين يُحدّد المهندس إنه محتاج — لا يُطلق تلقائياً.
+
+---
+
 ## الربط مع `/arib-wave-plan` (v3.17)
 
 لما الهدف كبير ومُعقّد، `/arib-wave-plan` يُقفل المتطلبات **قبل** إطلاق البيلد:

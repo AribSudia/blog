@@ -127,6 +127,25 @@ discover → ship → verify → integrate → record
 
 ---
 
+## Stack Skills — تخصصات العائلة
+
+مع `--with-arib-family`، الـ engine يصبح **مايسترو** يقود تخصصات عميقة في كل مرحلة:
+
+| Skill | يُستدعى متى |
+|-------|------------|
+| **`/arib-nestjs`** | أي module أو controller في دورة `discover→ship` |
+| **`/arib-postgres`** | أي migration أو استعلام مالي أو schema change |
+
+```bash
+/loop /arib-engine --with-arib-family harden the billing module
+# يستدعي arib-nestjs لمراجعة كل controller يمسّه
+# يستدعي arib-postgres لكل استعلام مالي أو migration
+```
+
+بدون `--with-arib-family` — الـ engine مكتفٍ بنفسه تماماً. Stack Skills **opt-in صارم**.
+
+---
+
 ## المصدر
 
 اعتُمد من منهجية **AEPG** (ADR-026). المرجع الكامل في:

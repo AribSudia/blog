@@ -103,14 +103,45 @@ decompose → dispatch (parallel) → integrate → reconcile → merge gate
 
 ---
 
+## Stack Skills — الطبقة الثالثة
+
+إلى جانب الأداتين الكبيرتين، العائلة الآن تشمل **تخصصات عميقة** تعمل معهما أو بمفردها:
+
+| Skill | الدور | الحجم |
+|-------|-------|-------|
+| **`/arib-nestjs`** | معمار NestJS + مراجعة (modules, DTOs, guards, lifecycle, security) | 90 سطر |
+| **`/arib-postgres`** | تحسين PostgreSQL + أمان migrations (indexing, EXPLAIN, N+1, RLS) | 85 سطر |
+
+**كيف تندمج مع الأداتين:**
+
+```bash
+# مع /arib-engine
+/loop /arib-engine --with-arib-family harden billing
+# ← يستدعي arib-nestjs + arib-postgres حسب ما يلمسه
+
+# مع /arib-build
+/arib-build add smart lock feature
+/arib-nestjs review apps/api/src/modules/locks   # ← بعد التسليم
+/arib-postgres review migration add_lock_models  # ← قبل الدمج
+```
+
+**بمفردها:**
+```bash
+/arib-nestjs review src/modules/payments
+/arib-postgres tune "SELECT * FROM reservations WHERE hotel_id = $1"
+```
+
+---
+
 ## التصميم خلف الاختيار
 
-كلاهما جزء من **CCM v3.14.0 "Engineering Manager"** — لكن لأغراض مختلفة:
+كلاهما جزء من **CCM** — لكن لأغراض مختلفة:
 
 - `/arib-engine` صُمّم للمشكلات **المفتوحة** — لا تعرف نهايتها مسبقاً
 - `/arib-build` صُمّم للتسليم **المحدّد** — تعرف النهاية وتريد أسرع طريق إليها
+- **Stack Skills** صُمّمت للـ **تخصص العميق** — تُضاف حين يحتاجها الهدف
 
-حجم الـ skill يعكس الفلسفة: الـ engine (300 سطر) يحمل آلية الاكتشاف والإغلاق. البيلد (70 سطر) مُركّز على **التوزيع والتجميع** فقط.
+حجم الـ skill يعكس الفلسفة: الـ engine (300 سطر) يحمل آلية الاكتشاف. البيلد (70 سطر) مُركّز على التوزيع. Stack Skills (85-90 سطر) تُركّز على تخصص واحد بدون حشو.
 
 ---
 
